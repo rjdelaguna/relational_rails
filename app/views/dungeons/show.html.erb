@@ -1,0 +1,8 @@
+<a href="/dungeons">Back to All Dungeons</a>
+
+<h1><%= @dungeon.name %></h1>
+
+<p>Is it typically deadly? <%= @dungeon.deadly %></p>
+<p>How many adventurers have been lost to it to date? <%= @dungeon.adventurers_claimed %></p>
+
+<a href="/dungeons/<%= @dungeon.id %>/edit">Edit</a>

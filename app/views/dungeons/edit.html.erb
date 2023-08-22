@@ -1,0 +1,12 @@
+<form action="/dungeons/<%= @dungeon.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PATCH" />
+  <p>Editing Dungeon: <%= @dungeon.name %></p>
+  <label for="name">Name of Dungeon</label><br/>
+  <input type='text' id='name' name='name' value="<%= @dungeon.name %>"/><br/><br/>
+  <label for="deadly">Is it typically deadly? (true/false)</label><br/>
+  <input type='text' id='deadly' name='deadly' value="<%= @dungeon.deadly %>"/><br/><br/>
+  <label for="adventurers_claimed">How many adventurer's has the dungeon claimed to date? (i.e. 50)</label><br/>
+  <input type='text' id='adventurers_claimed' name='adventurers_claimed' value="<%= @dungeon.adventurers_claimed %>"/><br/>
+  <input type='submit'/>
+</form>

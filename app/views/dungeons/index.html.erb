@@ -1,0 +1,14 @@
+<h1>Dungeons</h1>
+
+<a href="/">Back to Home Page</a>
+
+<% @dungeons.each do |dungeon| %>
+  <h3><a href="/dungeons/<%= dungeon.id %>"><%= dungeon.name %></a></h3>
+  <p><%= "Deadly? #{dungeon.deadly}, How many adventurer's has it claimed? #{dungeon.adventurers_claimed}" %></p>
+  <a href="/dungeons/<%= dungeon.id %>/edit">Edit</a> 
+  <form action="/dungeons/<%= dungeon.id %>" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="delete"/>
+  </form>
+<% end %>
