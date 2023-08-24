@@ -1,4 +1,4 @@
-class CreateDungeon < ActiveRecord::Migration[7.0]
+class CreateDungeons < ActiveRecord::Migration[7.0]
   def change
     create_table :dungeons do |t|
       t.string :name

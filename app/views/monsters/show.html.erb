@@ -1,0 +1,9 @@
+<a href="/monsters">Back to All Monsters</a>
+
+<h1><%= @monster.name %></h1>
+
+<p>Intelligent?: <%= @monster.intelligent %></p>
+<p>Hostile?: <%= @monster.hostile %></p>
+<p>Pack Size?: <%= @monster.pack_size %></p>
+
+<a href="/monsters/<%= @monster.id %>/edit">Edit</a>

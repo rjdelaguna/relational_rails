@@ -1,0 +1,14 @@
+<h1>Monsters</h1>
+
+<a href="/">Back to Home Page</a>
+
+<% @monsters.each do |monster| %>
+  <h3><a href="/monsters/<%= monster.id %>"><%= monster.name %></a></h3>
+  <p><%= "Intelligent? #{monster.intelligent}, Hostile? #{monster.hostile}, Pack Size? #{monster.pack_size}" %></p>
+  <a href="/monsters/<%= monster.id %>/edit">Edit</a>
+  <form action="/monsters/<%= monster.id %>" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="delete"/>
+  </form>
+<% end %>

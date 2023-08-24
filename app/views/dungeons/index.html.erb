@@ -4,7 +4,7 @@
 
 <% @dungeons.each do |dungeon| %>
   <h3><a href="/dungeons/<%= dungeon.id %>"><%= dungeon.name %></a></h3>
-  <p><%= "Deadly? #{dungeon.deadly}, How many adventurer's has it claimed? #{dungeon.adventurers_claimed}" %></p>
+<!--  <p><%= "Deadly? #{dungeon.deadly}, How many adventurer's has it claimed? #{dungeon.adventurers_claimed}" %></p> -->
   <a href="/dungeons/<%= dungeon.id %>/edit">Edit</a> 
   <form action="/dungeons/<%= dungeon.id %>" method="POST">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
