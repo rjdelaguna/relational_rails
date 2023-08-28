@@ -8,11 +8,10 @@ class MonstersController < ApplicationController
 
   def create
     monster = Monster.new({
-      # dungeon_id:
       name: params[:name],
       intelligent: params[:intelligent],
       hostile: params[:hostile],
-      pack_size: params[:pask_size]
+      pack_size: params[:pack_size]
     })
     monster.save
     redirect_to '/monsters'
@@ -27,7 +26,7 @@ class MonstersController < ApplicationController
   end
 
   def update
-    monster = Dungeon.find(params[:id])
+    monster = Monster.find(params[:id])
     monster.update({
       name: params[:name],
       intelligent: params[:intelligent],

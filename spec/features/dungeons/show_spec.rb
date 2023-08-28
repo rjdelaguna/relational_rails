@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe 'Dungeons index page', type: :feature do
+RSpec.describe 'Dungeons show page', type: :feature do
   
   describe "As a visitor" do
-    describe "when I visit /dungeons" do
+    describe "when I visit /dungeons/:id" do
       before :each do
         @toa = Dungeon.create!(name: 'Tomb of Annihilation', deadly: 'true', adventurers_claimed: 500)
         @lich = @toa.monsters.create!(name: 'Lich', intelligent: 'true', hostile: 'true', pack_size: 1)
@@ -11,14 +11,30 @@ RSpec.describe 'Dungeons index page', type: :feature do
         @guardian = @toa.monsters.create!(name: 'Tomb Guardian', intelligent: 'false', hostile: 'true', pack_size: 6)
       end
 
-      it "I see the name of each dungeon record in the system" do
-        visit "/dungeons"
+      it "I see the dungeon with that id, and it's attirbutes" do
+        visit "/dungeons/#{@toa.id}"
 
         expect(page).to have_content(@toa.name)
+        expect(page).to have_content("Is it typically deadly? #{@toa.deadly}")
+        expect(page).to have_content("How many adventurers have been lost to it to date? #{@toa.adventurers_claimed}")
+      end
+
+      it "I see a count of the number of monsters associated with this dungeon" do
+        visit "/dungeons/#{@toa.id}"
+
+        expect(page).to have_content("#{@toa.monster_count} kinds of Monsters can be found in this Dungeon")
+      end
+
+      it "I see a link that takes me to the dungeon's monter index" do
+        visit "/dungeons/#{@toa.id}"
+
+        click_on "#{@toa.name} Monsters"
+
+        expect(current_path).to eq("/dungeons/#{@toa.id}/monsters")
       end
 
       it "I see a link at the top of the page to all monsters" do
-        visit "/dungeons"
+        visit "/dungeons/#{@toa.id}"
     
         click_on "All Monsters"
     
@@ -26,33 +42,25 @@ RSpec.describe 'Dungeons index page', type: :feature do
       end
 
       it "I see a link at the top of the page to all dungeons" do
-        visit "/dungeons"
-    
+        visit "/dungeons/#{@toa.id}"
+        
         click_on "All Dungeons"
-    
+        
         expect(current_path).to eq("/dungeons")
       end
+      
+      it "I see a link to update the dungeon" do
+        visit "/dungeons/#{@toa.id}"
 
-      it "I see a link to create a new dungeon, that takes me to dungeons/new" do
-        visit "/dungeons"
-
-        click_on "New Dungeon"
-
-        expect(current_path).to eq("/dungeons/new")
-      end
-
-      it "I see a link next each dungeon to edit its info" do
-        visit "/dungeons"
-        
         click_on "Edit"
 
         expect(current_path).to eq("/dungeons/#{@toa.id}/edit")
       end
 
       it "I see a link to delete the dungeon" do
-        visit "dungeons"
+        visit "dungeons/#{@toa.id}"
 
-        click_on("Delete", match: :first)
+        click_on "Delete Dungeon"
 
         expect(current_path).to eq("/dungeons")
         expect(page).to have_no_content(@toa.name)

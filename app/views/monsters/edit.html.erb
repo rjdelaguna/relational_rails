@@ -1,12 +1,17 @@
+<ul style="list-style-type:none; margin-left:-40px;">
+<li style="float:left; margin-right:20px;"><a href="/dungeons">All Dungeons</a></li>
+<li style="float:left;"><a href="/monsters">All Monsters</a></li>
+</ul><br/>
+
 <form action="/monsters/<%= @monster.id %>" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <input type="hidden" name="_method" value="PATCH" />
   <p>Editing Monster: <%= @monster.name %></p>
   <label for="name">Name of Monster</label><br/>
   <input type='text' id='name' name='name' value="<%= @monster.name %>"/><br/><br/>
-   <label>The monster is intelligent.</label><br/>
+  <label>The monster is intelligent.</label><br/>
   <label for="true1">True</label>
-  <input type='radio' id='true1' name='intelligent' value='true'/>
+  <input type='radio' id='true1' name='intelligent' value='true' clicked/>
   <label for="false1">False</label>
   <input type='radio' id='false1' name='intelligent' value='false'/><br/><br/>
   <label>The monster is hostile by default.</label><br/>
@@ -16,5 +21,5 @@
   <input type='radio' id='false2' name='hostile' value='false'/><br/><br/>
   <label for="pack_size">How many are usually found together?</label><br/>
   <input type='text' id='pack_size' name='pack_size' value="<%= @monster.pack_size %>"/><br/>
-  <input type='submit'/>
+  <input type='submit' value='Create Monster'/>
 </form>

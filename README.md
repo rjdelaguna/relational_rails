@@ -26,7 +26,7 @@ Things you may want to cover:
 Iteration 1
 CRUD
 _________________________________________________________
-[ ] done
+[X] done
 
 User Story 1, Parent Index 
 
@@ -36,7 +36,7 @@ When I visit '/parents'
 Then I see the name of each parent record in the system
 
 _________________________________________________________
-[ ] done
+[X] done
 
 User Story 2, Parent Show 
 
@@ -46,7 +46,7 @@ Then I see the parent with that id including the parent's attributes
 (data from each column that is on the parent table)
 
 _________________________________________________________
-[ ] done
+[X] done
 
 User Story 3, Child Index 
 
@@ -56,7 +56,7 @@ Then I see each Child in the system including the Child's attributes
 (data from each column that is on the child table)
 
 _________________________________________________________
-[ ] done
+[X] done
 
 User Story 4, Child Show 
 
@@ -66,7 +66,7 @@ Then I see the child with that id including the child's attributes
 (data from each column that is on the child table)
 
 _________________________________________________________
-[ ] done
+[X] done
 
 User Story 5, Parent Children Index 
 
@@ -77,7 +77,7 @@ Then I see each Child that is associated with that Parent with each Child's attr
 
 ActiveRecord
 _________________________________________________________
-[ ] done
+[X] done
 
 User Story 6, Parent Index sorted by Most Recently Created 
 
@@ -87,7 +87,7 @@ I see that records are ordered by most recently created first
 And next to each of the records I see when it was created
 
 _________________________________________________________
-[ ] done
+[X] done
 
 User Story 7, Parent Child Count
 
@@ -97,7 +97,7 @@ I see a count of the number of children associated with this parent
 
 Usability
 _________________________________________________________
-[ ] done
+[X] done
 
 User Story 8, Child Index Link
 
@@ -106,7 +106,7 @@ When I visit any page on the site
 Then I see a link at the top of the page that takes me to the Child Index
 
 _________________________________________________________
-[ ] done
+[X] done
 
 User Story 9, Parent Index Link
 
@@ -115,7 +115,7 @@ When I visit any page on the site
 Then I see a link at the top of the page that takes me to the Parent Index
 
 _________________________________________________________
-[ ] done
+[X] done
 
 User Story 10, Parent Child Index Link
 
@@ -126,7 +126,7 @@ Then I see a link to take me to that parent's `child_table_name` page ('/parents
 Iteration 2
 CRUD
 _________________________________________________________
-[ ] done
+[X] done
 
 User Story 11, Parent Creation 
 
@@ -142,7 +142,7 @@ a new parent record is created,
 and I am redirected to the Parent Index page where I see the new Parent displayed.
 
 _________________________________________________________
-[ ] done
+[X] done
 
 User Story 12, Parent Update 
 
@@ -158,7 +158,7 @@ the parent's info is updated,
 and I am redirected to the Parent's Show page where I see the parent's updated info
 
 _________________________________________________________
-[ ] done
+[X] done
 
 User Story 13, Parent Child Creation 
 
@@ -174,7 +174,7 @@ a new child object/row is created for that parent,
 and I am redirected to the Parent Childs Index page where I can see the new child listed
 
 _________________________________________________________
-[ ] done
+[X] done
 
 User Story 14, Child Update 
 
@@ -190,7 +190,7 @@ and I am redirected to the Child Show page where I see the Child's updated infor
 
 ActiveRecord
 _________________________________________________________
-[ ] done
+[X] done
 
 User Story 15, Child Index only shows `true` Records 
 
@@ -199,7 +199,7 @@ When I visit the child index
 Then I only see records where the boolean column is `true`
 
 _________________________________________________________
-[ ] done
+[X] done
 
 User Story 16, Sort Parent's Children in Alphabetical Order by name 
 
@@ -211,7 +211,7 @@ I'm taken back to the Parent's children Index Page where I see all of the parent
 
 Usability
 _________________________________________________________
-[ ] done
+[X] done
 
 User Story 17, Parent Update From Parent Index Page 
 
@@ -222,7 +222,7 @@ When I click the link
 I should be taken to that parent's edit page where I can update its information just like in User Story 12
 
 _________________________________________________________
-[ ] done
+[X] done
 
 User Story 18, Child Update From Childs Index Page 
 
@@ -235,7 +235,7 @@ I should be taken to that `child_table_name` edit page where I can update its in
 Iteration 3
 CRUD
 _________________________________________________________
-[ ] done
+[X] done
 
 User Story 19, Parent Delete 
 
@@ -248,7 +248,7 @@ the parent is deleted, and all child records are deleted
 and I am redirected to the parent index page where I no longer see this parent
 
 _________________________________________________________
-[ ] done
+[X] done
 
 User Story 20, Child Delete 
 
@@ -262,7 +262,7 @@ and I am redirected to the child index page where I no longer see this child
 
 ActiveRecord
 _________________________________________________________
-[ ] done
+[X] done
 
 User Story 21, Display Records Over a Given Threshold 
 
@@ -274,7 +274,7 @@ Then I am brought back to the current index page with only the records that meet
 
 Usability
 _________________________________________________________
-[ ] done
+[X] done
 
 User Story 22, Parent Delete From Parent Index Page 
 
@@ -285,7 +285,7 @@ When I click the link
 I am returned to the Parent Index Page where I no longer see that parent
 
 _________________________________________________________
-[ ] done
+[X] done
 
 User Story 23, Child Delete From Childs Index Page 
 

@@ -3,7 +3,7 @@
 <li style="float:left;"><a href="/monsters">All Monsters</a></li>
 </ul><br/>
 
-<form action="/monsters" method="post">
+<form action="/dungeons/<%= @dungeon.id %>/monsters" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <p>Create a new Monster:</p>
   <label for="name">Name of Monster</label><br/>
@@ -20,6 +20,5 @@
   <input type='radio' id='false2' name='hostile' value='false'/><br/><br/>
   <label for="pack_size">How many in this pack? (i.e. 6)</label><br/>
   <input type='text' id='pack_size' name='pack_size'/><br/>
-  <input type='submit'/>
+  <input type='submit' value='Create Monster'/>
 </form>
-  

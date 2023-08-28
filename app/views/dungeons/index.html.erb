@@ -1,14 +1,21 @@
+<ul style="list-style-type:none; margin-left:-40px;">
+<li style="float:left; margin-right:20px;"><a href="/dungeons">All Dungeons</a></li>
+<li style="float:left;"><a href="/monsters">All Monsters</a></li>
+</ul><br/>
+
 <h1>Dungeons</h1>
 
 <a href="/">Back to Home Page</a>
 
 <% @dungeons.each do |dungeon| %>
-  <h3><a href="/dungeons/<%= dungeon.id %>"><%= dungeon.name %></a></h3>
+  <h3><a href="/dungeons/<%= dungeon.id %>"><%= dungeon.name %></a>&ensp;<small style="font-size:70%">Created at: <%= dungeon.created_at %></small></h3>
 <!--  <p><%= "Deadly? #{dungeon.deadly}, How many adventurer's has it claimed? #{dungeon.adventurers_claimed}" %></p> -->
   <a href="/dungeons/<%= dungeon.id %>/edit">Edit</a> 
   <form action="/dungeons/<%= dungeon.id %>" method="POST">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="delete"/>
+    <input type="submit" value="Delete"/>
   </form>
-<% end %>
+<% end %><br/><br/>
+
+<a href="/dungeons/new">New Dungeon</a>

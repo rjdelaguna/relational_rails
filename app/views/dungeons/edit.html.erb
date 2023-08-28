@@ -1,3 +1,8 @@
+<ul style="list-style-type:none; margin-left:-40px;">
+<li style="float:left; margin-right:20px;"><a href="/dungeons">All Dungeons</a></li>
+<li style="float:left;"><a href="/monsters">All Monsters</a></li>
+</ul><br/>
+
 <form action="/dungeons/<%= @dungeon.id %>" method="post">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <input type="hidden" name="_method" value="PATCH" />
@@ -8,8 +13,8 @@
   <label for="true">True</label>
   <input type='radio' id='true' name='deadly' value="true"/>
   <label for="false">False</label>
-  <input type='radio' id='false' name='deadly' value="false"/>
+  <input type='radio' id='false' name='deadly' value="false"/><br/><br/>
   <label for="adventurers_claimed">How many adventurer's has the dungeon claimed to date? (i.e. 50)</label><br/>
   <input type='text' id='adventurers_claimed' name='adventurers_claimed' value="<%= @dungeon.adventurers_claimed %>"/><br/>
-  <input type='submit'/>
+  <input type='submit' value='Submit'/>
 </form>
