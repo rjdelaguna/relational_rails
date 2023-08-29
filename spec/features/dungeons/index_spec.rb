@@ -53,7 +53,7 @@ RSpec.describe 'Dungeons index page', type: :feature do
         visit "dungeons"
 
         click_on("Delete", match: :first)
-
+        
         expect(current_path).to eq("/dungeons")
         expect(page).to have_no_content(@toa.name)
       end

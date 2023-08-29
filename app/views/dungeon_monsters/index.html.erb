@@ -1,27 +1,21 @@
-<ul style="list-style-type:none; margin-left:-40px;">
-<li style="float:left; margin-right:20px;"><a href="/dungeons">All Dungeons</a></li>
-<li style="float:left;"><a href="/monsters">All Monsters</a></li>
-</ul><br/>
+<%= link_to "All Dungeons", "/dungeons" %>
+<%= link_to "All Monsters", "/monsters" %>
 
 <h1>Monsters found in the <%= @dungeon.name %></h1>
 
-<a href="/">Back to Home Page</a><br/><br/>
-<%= link_to "Sort A..Z", request.params.merge(sort: "alphabetize") %><br/>
-<form action="<% link_to "/dungeons/#{@dungeon.id}/monsters", request.params.merge(sort: "amount") %>" method="GET">
-  <label for="records">Only return records with more than this amount for Pack Size</label>
-  <input type='number' id='records' name='amount' min='1' max='20'>
-  <input type='submit' value='Submit'>
-</form>
+<%= link_to "Home Page", "/" %><br/><br/>
+<%= link_to "Sort A..Z", "/dungeons/#{@dungeon.id}/monsters?sort=alphabetize" %><br/>
+<%= form_with url:"/dungeons/#{@dungeon.id}/monsters", method: :get, data: {turbo: false } do |form| %>
+  <%= form.label :amount, "Only return records with more than this amount for Pack Size" %><br/>
+  <%= form.number_field :amount, in: 0..20 %>
+  <%= form.submit "Submit" %>
+<% end %>
 
 <% @monsters.each do |monster| %>
-  <h3 class='name'><a href="/monsters/<%= monster.id %>"><%= monster.name %></a></h3>
+  <h3 class='name'><%= link_to "#{monster.name}", "/monsters/#{monster.id}" %></h3>
   <p><%= "Intelligent? #{monster.intelligent} , Hostile? #{monster.hostile} , Pack Size? #{monster.pack_size}" %></p>
-  <a href="/monsters/<%= monster.id %>/edit">Edit</a>
-  <form action="/monsters/<%= monster.id %>" method="POST">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="Delete"/>
-  </form>
+  <%= link_to "Edit", "/monsters/#{monster.id}/edit" %>
+  <%= link_to "Delete", "/monsters/#{monster.id}", data: { turbo_method: :delete} %>
 <% end %><br/><br/>
 
-<a href="/dungeons/<%= @dungeon.id %>/monsters/new">Create Monster</a>
+<%= link_to "Create Monster", "/dungeons/#{@dungeon.id}/monsters/new" %>

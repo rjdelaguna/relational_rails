@@ -1,21 +1,14 @@
-<ul style="list-style-type:none; margin-left:-40px;">
-<li style="float:left; margin-right:20px;"><a href="/dungeons">All Dungeons</a></li>
-<li style="float:left;"><a href="/monsters">All Monsters</a></li>
-</ul><br/>
+<%= link_to "All Dungeons", "/dungeons" %>
+<%= link_to "All Monsters", "/monsters" %>
 
 <h1>Dungeons</h1>
 
-<a href="/">Back to Home Page</a>
+<%= link_to "Home Page", "/" %>
 
 <% @dungeons.each do |dungeon| %>
-  <h3><a href="/dungeons/<%= dungeon.id %>"><%= dungeon.name %></a>&ensp;<small style="font-size:70%">Created at: <%= dungeon.created_at %></small></h3>
-<!--  <p><%= "Deadly? #{dungeon.deadly}, How many adventurer's has it claimed? #{dungeon.adventurers_claimed}" %></p> -->
-  <a href="/dungeons/<%= dungeon.id %>/edit">Edit</a> 
-  <form action="/dungeons/<%= dungeon.id %>" method="POST">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="Delete"/>
-  </form>
+  <h3><%= link_to "#{dungeon.name}", "/dungeons/#{dungeon.id}" %>&ensp;<small style="font-size:70%">Created at: <%= dungeon.created_at %></small></h3>
+  <%= link_to "Edit", "/dungeons/#{dungeon.id}/edit" %> 
+  <%= link_to "Delete", "/dungeons/#{dungeon.id}", data: { turbo_method: :delete} %>
 <% end %><br/><br/>
 
-<a href="/dungeons/new">New Dungeon</a>
+<%= link_to "New Dungeon", "/dungeons/new" %>

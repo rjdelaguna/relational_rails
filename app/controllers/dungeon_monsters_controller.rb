@@ -7,7 +7,7 @@ class DungeonMonstersController < ApplicationController
       @monsters = @dungeon.monsters
     end
 
-    if params[:amount] != nil && params[:amount].to_i >= 1
+    if params[:amount] != nil
       
       @monsters = @dungeon.amount(params[:amount])
     end

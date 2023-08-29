@@ -8,7 +8,7 @@ RSpec.describe 'Dungeons new page', type: :feature do
         visit "/dungeons/new"
 
         fill_in 'name', with: 'New dungeon'
-        choose 'false'
+        choose 'deadly_false'
         fill_in 'adventurers_claimed', with: '5'
         click_button 'Create Dungeon'
 

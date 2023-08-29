@@ -1,20 +1,23 @@
-<ul style="list-style-type:none; margin-left:-40px;">
-<li style="float:left; margin-right:20px;"><a href="/dungeons">All Dungeons</a></li>
-<li style="float:left;"><a href="/monsters">All Monsters</a></li>
-</ul><br/>
+<%= link_to "All Dungeons", "/dungeons" %>
+<%= link_to "All Monsters", "/monsters" %>
 
-<form action="/dungeons/<%= @dungeon.id %>" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="PATCH" />
-  <p>Editing Dungeon: <%= @dungeon.name %></p>
-  <label for="name">Name of Dungeon</label><br/>
-  <input type='text' id='name' name='name' value="<%= @dungeon.name %>"/><br/><br/>
-  <label for="deadly">Is it typically deadly?</label><br/>
-  <label for="true">True</label>
-  <input type='radio' id='true' name='deadly' value="true"/>
-  <label for="false">False</label>
-  <input type='radio' id='false' name='deadly' value="false"/><br/><br/>
-  <label for="adventurers_claimed">How many adventurer's has the dungeon claimed to date? (i.e. 50)</label><br/>
-  <input type='text' id='adventurers_claimed' name='adventurers_claimed' value="<%= @dungeon.adventurers_claimed %>"/><br/>
-  <input type='submit' value='Submit'/>
-</form>
+<h3>Editing Dungeon: <%= @dungeon.name %></h3>
+<%= form_with url:"/dungeons/#{@dungeon.id}", method: :patch, data: { turbo: false } do |form| %>
+  <%= form.label :name, 'Name of Dungeon' %><br/>
+  <%= form.text_field :name, value: "#{@dungeon.name}" %><br/><br/>
+  <%= form.label :deadly, 'Is it typically deadly?' %><br/>
+    <% if @dungeon.deadly == true %>
+      <%= form.label :deadly_true, 'True' %>
+      <%= form.radio_button :deadly, 'true', checked: "checked" %>
+      <%= form.label :deadly_false, 'False' %>
+      <%= form.radio_button :deadly, 'false' %><br/>
+    <% else %>
+      <%= form.label :deadly_true, 'True' %>
+      <%= form.radio_button :deadly, 'true' %>
+      <%= form.label :deadly_false, 'False' %>
+      <%= form.radio_button :deadly, 'false', checked: "checked" %><br/><br/>
+    <% end %>
+  <%= form.label :adventurers_claimed, "How many adventurer's has the dungeon claimed to date?" %><br/>
+  <%= form.number_field :adventurers_claimed, value: @dungeon.adventurers_claimed.to_i, in: 0..1000, step: 1 %><br/><br/>
+  <%= form.submit "Submit" %>
+  <% end %>

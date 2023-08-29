@@ -12,8 +12,8 @@ RSpec.describe 'DungeonMonsters new page', type: :feature do
         visit "/dungeons/#{@toa.id}/monsters/new"
 
         fill_in 'name', with: 'New Monster'
-        choose 'true1'
-        choose 'false2'
+        choose 'intelligent_true'
+        choose 'hostile_false'
         fill_in 'pack_size', with: '2'
         click_button 'Create Monster'
 

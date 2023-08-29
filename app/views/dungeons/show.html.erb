@@ -1,17 +1,11 @@
-<ul style="list-style-type:none; margin-left:-40px;">
-<li style="float:left; margin-right:20px;"><a href="/dungeons">All Dungeons</a></li>
-<li style="float:left;"><a href="/monsters">All Monsters</a></li>
-</ul><br/>
+<%= link_to "All Dungeons", "/dungeons" %>
+<%= link_to "All Monsters", "/monsters" %>
 
-<h1 style="clear:both;"><%= @dungeon.name %></h1>
-<a href="/dungeons/<%= @dungeon.id %>/monsters"><%= @dungeon.name %> Monsters</a>
+<h1><%= @dungeon.name %></h1>
+<%= link_to "#{@dungeon.name} Monsters", "/dungeons/#{@dungeon.id}/monsters" %>
 <p>Is it typically deadly? <%= @dungeon.deadly %></p>
 <p>How many adventurers have been lost to it to date? <%= @dungeon.adventurers_claimed %></p>
 <p><%= @dungeon.monster_count %> kinds of Monsters can be found in this Dungeon.</p>
 
-<a href="/dungeons/<%= @dungeon.id %>/edit">Edit</a>
-<form action="/dungeons/<%= @dungeon.id %>" method="POST">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete Dungeon"/>
-</form>
+<%= link_to "Edit", "/dungeons/#{@dungeon.id}/edit" %> 
+<%= link_to "Delete Dungeon", "/dungeons/#{@dungeon.id}", data: { turbo_method: :delete} %>

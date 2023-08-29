@@ -15,7 +15,7 @@ RSpec.describe 'Dungeons edit page', type: :feature do
         visit "/dungeons/#{@toa.id}/edit"
 
         fill_in 'name', with: 'New Tomb'
-        choose 'false'
+        choose 'deadly_false'
         fill_in 'adventurers_claimed', with: '100'
         click_button 'Submit'
         

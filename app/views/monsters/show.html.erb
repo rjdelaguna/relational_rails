@@ -1,7 +1,5 @@
-<ul style="list-style-type:none; margin-left:-40px;">
-<li style="float:left; margin-right:20px;"><a href="/dungeons">All Dungeons</a></li>
-<li style="float:left;"><a href="/monsters">All Monsters</a></li>
-</ul><br/>
+<%= link_to "All Dungeons", "/dungeons" %>
+<%= link_to "All Monsters", "/monsters" %>
 
 <a href="/monsters">Back to All Monsters</a>
 
@@ -11,9 +9,5 @@
 <p>Hostile? <%= @monster.hostile %></p>
 <p>Pack Size? <%= @monster.pack_size %></p>
 
-<a href="/monsters/<%= @monster.id %>/edit">Update Monster</a>
-<form action="/monsters/<%= @monster.id %>" method="POST">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <input type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete Monster"/>
-</form>
+<%= link_to "Update Monster", "/monsters/#{@monster.id}/edit" %> 
+<%= link_to "Delete Monster", "/monsters/#{@monster.id}", data: { turbo_method: :delete} %>
